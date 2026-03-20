@@ -1,1 +1,7 @@
-
+/.bundle/
+/vendor/bundle
+/pkg/
+/tmp/
+*.gem
+Gemfile.lock
+.rubocop-*

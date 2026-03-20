@@ -1,0 +1,46 @@
+name: Weekly Verification
+
+on:
+  schedule:
+    - cron: "0 0 * * 1"
+  workflow_dispatch:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Verify against Cabinet Office CSV
+        run: bundle exec rake verified_holidays:verify
+
+      - name: Create issue on failure
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const title = `Holiday data verification failed (${new Date().toISOString().split('T')[0]})`;
+            const body = [
+              '## Holiday Data Mismatch Detected',
+              '',
+              'The weekly verification against the [Cabinet Office CSV](https://www8.cao.go.jp/chosei/shukujitsu/syukujitsu.csv) has failed.',
+              '',
+              'Please run `rake verified_holidays:update` to update the local data and submit a PR.',
+              '',
+              `[View workflow run](${process.env.GITHUB_SERVER_URL}/${process.env.GITHUB_REPOSITORY}/actions/runs/${process.env.GITHUB_RUN_ID})`
+            ].join('\n');
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title,
+              body,
+              labels: ['data-update']
+            });

@@ -1,0 +1,122 @@
+# NOTE: この設定は Planning Poker / AnaUme の .rubocop.yml をベースに、
+# gem（非 Rails・minitest）用に調整しています。
+plugins:
+  - rubocop-performance
+
+AllCops:
+  NewCops: enable
+  SuggestExtensions: false
+  TargetRubyVersion: 3.1
+  Exclude:
+    - 'vendor/**/*'
+    - 'tmp/**/*'
+
+Metrics/AbcSize:
+  Max: 17
+
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - 'test/**/*'
+    - 'Rakefile'
+    - '*.gemspec'
+
+Metrics/ClassLength:
+  Max: 100
+
+Metrics/CyclomaticComplexity:
+  Max: 7
+
+Metrics/MethodLength:
+  Max: 20
+
+Metrics/ModuleLength:
+  Max: 100
+
+Metrics/PerceivedComplexity:
+  Max: 8
+
+Layout/LineLength:
+  Max: 120
+  Exclude:
+    - 'test/**/*'
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+Style/SymbolArray:
+  Enabled: true
+
+Style/WordArray:
+  Enabled: true
+
+Style/TrailingCommaInArrayLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInHashLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/TrailingCommaInArguments:
+  EnforcedStyleForMultiline: consistent_comma
+
+Style/NumericLiterals:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: true
+  MinBodyLength: 0
+
+Naming/PredicateMethod:
+  Enabled: false
+
+Naming/VariableNumber:
+  Exclude:
+    - 'test/**/*'
+
+Style/SafeNavigationChainLength:
+  Max: 2
+
+Lint/NonAtomicFileOperation:
+  Enabled: true
+
+Security/Eval:
+  Enabled: true
+
+Security/Open:
+  Enabled: true
+
+Security/YAMLLoad:
+  Enabled: true
+
+Security/MarshalLoad:
+  Enabled: true
+
+Security/JSONLoad:
+  Enabled: true
+
+Performance/StringReplacement:
+  Enabled: true
+
+Performance/RegexpMatch:
+  Enabled: true
+
+Lint/UselessAssignment:
+  Enabled: true
+
+Lint/UnusedBlockArgument:
+  Enabled: true
+
+Lint/UnusedMethodArgument:
+  Enabled: true
+
+Lint/ShadowingOuterLocalVariable:
+  Enabled: true
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: true
