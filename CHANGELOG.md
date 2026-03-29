@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.1.4] - 2026-03-29
+
+- Fix file path labeler removing branch-based labels (sync-labels: false)
+
 ## [0.1.3] - 2026-03-29
 
 - Replace numeric index access with header name access in `CabinetOffice.parse`
