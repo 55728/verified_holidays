@@ -9,5 +9,6 @@ group :development, :test do
   gem 'rake', '~> 13.0'
   gem 'rubocop', '~> 1.0'
   gem 'rubocop-performance', require: false
+  gem 'simplecov', require: false
   gem 'webmock', '~> 3.0'
 end
