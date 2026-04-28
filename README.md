@@ -61,21 +61,15 @@ holiday.wday_name # => "Thursday"
 holiday.week     # => "Thursday" (alias for wday_name)
 ```
 
-## Migration from holiday_jp
+## Compatibility with holiday_jp
 
-Replace:
-
-```ruby
-require "holiday_jp"
-```
-
-with:
+If you're already using holiday_jp, verified_holidays works as a drop-in replacement:
 
 ```ruby
 require "verified_holidays/holiday_jp_compat"
 ```
 
-That's it. `HolidayJp.holiday?`, `HolidayJp.between`, and `HolidayJp::Holiday` all work as before.
+HolidayJp.holiday?, HolidayJp.between, and HolidayJp::Holiday all work as before.
 
 ## Verification
 
