@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.1](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays/v0.3.0...verified_holidays/v0.3.1) (2026-04-28)
+
+
+### Miscellaneous
+
+* add Ruby 4.0 to test matrix ([#24](https://github.com/verified-holidays/verified_holidays/issues/24)) ([46e0715](https://github.com/verified-holidays/verified_holidays/commit/46e0715ffeb94a3fe973c27b579b39ef3e9406c7))
+
 ## [0.3.0](https://github.com/verified-holidays/verified_holidays/compare/verified_holidays-v0.2.2...verified_holidays/v0.3.0) (2026-03-29)
 
 
